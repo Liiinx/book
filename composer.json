@@ -9,6 +9,7 @@
         "ext-iconv": "*",
         "blackfireio/blackfire-symfony-meta": "^1.0",
         "doctrine/annotations": "^1.0",
+        "doctrine/dbal": "^3",
         "doctrine/doctrine-bundle": "^2.7",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.13",

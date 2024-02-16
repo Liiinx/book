@@ -1,0 +1,3 @@
+<?php // dev.encrypt.public on Thu, 15 Feb 2024 14:28:52 +0000
+
+return "XU\x21pYSk\x86\x28A\x8A\xA3\xCB\xAEM\x3B\x5ER\x27i\xF7T\x2BF\xA7\xEE\xBFWHs\x7C\x40";
