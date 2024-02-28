@@ -39,6 +39,8 @@ class SpamChecker
             ]),
         ]);
 
+        error_log("test asynchrone", 0);
+
         $headers = $response->getHeaders();
         if ('discard' === ($headers['x-akismet-pro-tip'][0] ?? '')) {
             return 2;

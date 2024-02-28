@@ -49,5 +49,6 @@ class CommentCrudController extends AbstractCrudController
 //            yield $createdAt->setFormTypeOption('disabled', true);
 //        }
         yield DateTimeField::new('createdAt');
+        yield TextField::new('state');
     }
 }

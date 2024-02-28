@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6ef2dac0f9e4a9a04ed39360904274cf",
+    "content-hash": "1c90590e3b48a6a1f1067f202f6593af",
     "packages": [
         {
             "name": "blackfire/php-sdk",
@@ -3232,16 +3232,16 @@
         },
         {
             "name": "symfony/doctrine-messenger",
-            "version": "v6.2.0",
+            "version": "v6.2.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/doctrine-messenger.git",
-                "reference": "51f0c23a2b938d5ed4c9c859d502033c4cde3723"
+                "reference": "f8fb54b7325d0c3bcc2b1b1c70461eaa3dd7f0f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/doctrine-messenger/zipball/51f0c23a2b938d5ed4c9c859d502033c4cde3723",
-                "reference": "51f0c23a2b938d5ed4c9c859d502033c4cde3723",
+                "url": "https://api.github.com/repos/symfony/doctrine-messenger/zipball/f8fb54b7325d0c3bcc2b1b1c70461eaa3dd7f0f5",
+                "reference": "f8fb54b7325d0c3bcc2b1b1c70461eaa3dd7f0f5",
                 "shasum": ""
             },
             "require": {
@@ -3284,7 +3284,7 @@
             "description": "Symfony Doctrine Messenger Bridge",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/doctrine-messenger/tree/v6.2.0"
+                "source": "https://github.com/symfony/doctrine-messenger/tree/v6.2.12"
             },
             "funding": [
                 {
@@ -3300,7 +3300,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-11-04T07:42:34+00:00"
+            "time": "2023-06-24T11:48:11+00:00"
         },
         {
             "name": "symfony/dotenv",
@@ -7556,6 +7556,90 @@
                 }
             ],
             "time": "2022-08-25T15:27:04+00:00"
+        },
+        {
+            "name": "symfony/workflow",
+            "version": "v6.2.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/workflow.git",
+                "reference": "2cb0cf1b67891f069d1107deafeda128383ec86c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/workflow/zipball/2cb0cf1b67891f069d1107deafeda128383ec86c",
+                "reference": "2cb0cf1b67891f069d1107deafeda128383ec86c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "conflict": {
+                "symfony/event-dispatcher": "<5.4"
+            },
+            "require-dev": {
+                "psr/log": "^1|^2|^3",
+                "symfony/dependency-injection": "^5.4|^6.0",
+                "symfony/event-dispatcher": "^5.4|^6.0",
+                "symfony/expression-language": "^5.4|^6.0",
+                "symfony/security-core": "^5.4|^6.0",
+                "symfony/validator": "^5.4|^6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Workflow\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Grégoire Pineau",
+                    "email": "lyrixx@lyrixx.info"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides tools for managing a workflow or finite state machine",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "petrinet",
+                "place",
+                "state",
+                "statemachine",
+                "transition",
+                "workflow"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/workflow/tree/v6.2.13"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-07-25T12:48:54+00:00"
         },
         {
             "name": "symfony/yaml",
