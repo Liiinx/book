@@ -9,10 +9,14 @@ use App\Repository\CommentRepository;
 use App\Repository\ConferenceRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Bridge\Twig\Mime\NotificationEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 //use App\SpamChecker;
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -101,5 +105,25 @@ class ConferenceController extends AbstractController
             'next' => min(count($paginator), $offset + CommentRepository::PAGINATOR_PER_PAGE),
             'comment_form' => $form,
         ]);
+    }
+
+
+    /**
+     * @throws TransportExceptionInterface
+     */
+    #[Route('/email')]
+    public function sendEmail(MailerInterface $mailer): response
+    {
+        $email = (new Email())
+//        $email = (new NotificationEmail())
+            ->from('test33333333@example.com')
+            ->to('te3333333333before@plan-immobilier.fr')
+            ->subject('Time for Symfony Mailer!')
+            ->text('Sending emails is fun again!')
+            ->html('<p>See Twig integration for better HTML integration!</p>');
+
+        $mailer->send($email);
+//        return $this->render('conference/index.html.twig');
+        return $this->redirectToRoute('homepage');
     }
 }
