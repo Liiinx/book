@@ -30,24 +30,32 @@ class ConferenceController extends AbstractController
     ) {}
 
     /**
-     * @param ConferenceRepository $conferenceRepository
      * @return Response
      */
     #[Route('/', name: 'homepage')]
     public function index(ConferenceRepository $conferenceRepository): Response
     {
-//        return $this->render('conference/index.html.twig', [
-//            'conferences' => $conferenceRepository->findAll(),
-//        ]);
-        // variables conferences injecter dans tous les templates avec event subscriber
-        return $this->render('conference/index.html.twig');
+        // variables conferences injecté dans tous les templates avec event subscriber. code en commentaire
+//        return $this->render('conference/index.html.twig');
+
+        return $this->render('conference/index.html.twig', [
+            'conferences' => $conferenceRepository->findAll(),
+        ])->setSharedMaxAge(3600); // met en cache la page pour une heure
+    }
+
+    #[Route('/conference_header', name: 'conference_header')]
+    public function conferenceHeader(ConferenceRepository $conferenceRepository): Response
+    {
+        return $this->render('conference/header.html.twig', [
+            'conferences' => $conferenceRepository->findAll(),
+        ])->setSharedMaxAge(3600);
     }
 
     /**
      * @param Request $request
      * @param Conference $conference
      * @param CommentRepository $commentRepository
-//     * @param SpamChecker $spamChecker
+    //     * @param SpamChecker $spamChecker
      * @param string $photoDir
      * @return Response
      * @throws Exception
