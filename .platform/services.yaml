@@ -1,4 +1,12 @@
-
 database:
     type: postgresql:14
     disk: 1024
+
+varnish:
+    type: varnish:6.0
+    relationships:
+        application: 'app:http'
+    configuration:
+        vcl: !include
+            type: string
+            path: config.vcl
