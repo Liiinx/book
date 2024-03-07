@@ -106,6 +106,21 @@
             "config/packages/sensio_framework_extra.yaml"
         ]
     },
+    "symfony/asset-mapper": {
+        "version": "6.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "6.4",
+            "ref": "6c28c471640cc2c6e60812ebcb961c526ef8997f"
+        },
+        "files": [
+            "assets/app.js",
+            "assets/styles/app.css",
+            "config/packages/asset_mapper.yaml",
+            "importmap.php"
+        ]
+    },
     "symfony/console": {
         "version": "6.2",
         "recipe": {
@@ -353,6 +368,9 @@
         "files": [
             "config/packages/workflow.yaml"
         ]
+    },
+    "symfonycasts/sass-bundle": {
+        "version": "v0.6.0"
     },
     "twig/extra-bundle": {
         "version": "v3.4.0"
