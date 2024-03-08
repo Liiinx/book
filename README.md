@@ -31,3 +31,7 @@ for bus messenger, run :
 
 `symfony console messenger:consume async -vv`
 
+compile asset with asset mapper, run :
+
+`symfony console asset-map:compile`
+
