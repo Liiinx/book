@@ -117,9 +117,10 @@ class ConferenceController extends AbstractController
 
 
     /**
+     * test function to send mail
      * @throws TransportExceptionInterface
      */
-    #[Route('/email')]
+    #[Route('/email', name: 'test-mail')]
     public function sendEmail(MailerInterface $mailer): response
     {
         $email = (new Email())
@@ -133,5 +134,24 @@ class ConferenceController extends AbstractController
         $mailer->send($email);
 //        return $this->render('conference/index.html.twig');
         return $this->redirectToRoute('homepage');
+    }
+
+    /**
+     * test function
+     */
+    #[Route('/test', name: 'test-something')]
+    public function test(CommentRepository $commentRepository): response
+    {
+        $count = $this->entityManager->getRepository(Comment::class)->countOldRejected();
+        dump($count);
+        return new Response(<<<EOF
+            <html>
+                <body>
+                    <p class="">Ma page de test !!</p>
+                    <img src="/images/under-construction.gif" />
+                </body>
+            </html>
+            EOF
+        );
     }
 }
