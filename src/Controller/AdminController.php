@@ -4,13 +4,17 @@ namespace App\Controller;
 
 use App\Entity\Comment;
 use App\Message\CommentMessage;
+use App\Notification\CommentReviewNotification;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bridge\Twig\Mime\NotificationEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\HttpCache\StoreInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
+use Symfony\Component\Notifier\NotifierInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Workflow\WorkflowInterface;
 use Twig\Environment;
@@ -22,6 +26,7 @@ class AdminController extends AbstractController
         private Environment $twig,
         private EntityManagerInterface $entityManager,
         private MessageBusInterface $bus,
+        private MailerInterface $mailer,
     ) {
     }
 
@@ -43,6 +48,15 @@ class AdminController extends AbstractController
 
         if ($accepted) {
             $this->bus->dispatch(new CommentMessage($comment->getId()));
+
+            // send email to user if comment is accept
+            $this->mailer->send((new NotificationEmail())
+                ->subject('Comment posted !')
+                ->htmlTemplate('emails/comment_user_notification.html.twig')
+                ->from("admin@admin.fr")
+                ->to($comment->getEmail())
+                ->context(['comment' => $comment])
+            );
         }
 
         return new Response($this->twig->render('admin/review.html.twig', [

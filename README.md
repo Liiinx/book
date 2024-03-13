@@ -35,3 +35,11 @@ compile asset with asset mapper, run :
 
 `symfony console asset-map:compile`
 
+Minify asset, run :
+
+`symfony console app:minify`
+
+Clean rejected comments, run :
+
+`symfony console app:comment:cleanup`
+
