@@ -65,16 +65,16 @@ class CommentMessageHandler
 //            $this->commentStateMachine->apply($comment, $this->commentStateMachine->can($comment, 'publish') ? 'publish' : 'publish_ham');
 //            $this->entityManager->flush();
 
-//            if ($this->emailSendType == "true") {
-//                $this->mailer->send((new NotificationEmail())
-//                    ->subject('New comment posted')
-//                    ->htmlTemplate('emails/comment_notification.html.twig')
-////                    ->from($this->adminEmail)
-//                    ->from("mailerInterface@test.fr")
-//                    ->to($this->adminEmail)
-//                    ->context(['comment' => $comment])
-//                );
-//            } else {
+            /*if ($this->emailSendType == "true") {
+                $this->mailer->send((new NotificationEmail())
+                    ->subject('New comment posted')
+                    ->htmlTemplate('emails/comment_notification.html.twig')
+//                    ->from($this->adminEmail)
+                    ->from("mailerInterface@test.fr")
+                    ->to($this->adminEmail)
+                    ->context(['comment' => $comment])
+                );
+            } else {*/
                 $this->notifier->send(new CommentReviewNotification($comment), ...$this->notifier->getAdminRecipients());
 //            }
 
