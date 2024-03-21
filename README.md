@@ -43,3 +43,18 @@ Clean rejected comments, run :
 
 `symfony console app:comment:cleanup`
 
+url API Platform : /api
+
+### Single page application :
+directory : spa
+
+`cd spa`
+
+run `npm install`
+
+run web server `symfony server:start -d --passthru=index.html`
+
+to compil asset and connect to API platform data, run :
+
+`API_ENDPOINT=\`symfony var:export SYMFONY_PROJECT_DEFAULT_ROUTE_URL --dir=..\` symfony run -d --watch=webpack.config.js ./node_modules/.bin/encore dev --watch`
+
