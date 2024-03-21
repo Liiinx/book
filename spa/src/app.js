@@ -25,7 +25,7 @@ function App() {
                 <nav className="navbar navbar-light bg-light">
                     <div className="container">
                         <Link className="navbar-brand mr-4 pr-2" href="/">
-                            &#128217; Guestbook
+                            &#128217; Guestbook SPA (Single Page Application)
                         </Link>
                     </div>
                 </nav>

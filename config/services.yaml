@@ -12,6 +12,7 @@ parameters:
     default_base_url: 'http://127.0.0.1'
     router.request_context.base_url: '%env(default:default_base_url:SYMFONY_DEFAULT_ROUTE_URL)%'
     project_dir: '%kernel.project_dir%'
+    app.supported_locales: 'en|fr'
 
 services:
     # default configuration for services in *this* file
